@@ -7,8 +7,8 @@ using UnityEngine;
 public class ScoreModifier : MonoBehaviour {
 	[SerializeField] private string operatorSymbol = "";
 	[SerializeField] private int modifierValue = 0;
-	[SerializeField] private Material HappyMaterial;
-	[SerializeField] private Material BadMaterial;
+	[SerializeField] private Material happyMaterial;
+	[SerializeField] private Material badMaterial;
 
 	void Awake() {
 		Operators = new Dictionary<string, OperatorInfo> {
@@ -16,28 +16,28 @@ public class ScoreModifier : MonoBehaviour {
 				"+", new OperatorInfo {
 					Numbers = new List<int> { 10, 20, 30 },
 					Operation = (currentScore, value) => currentScore + value,
-					Mat = HappyMaterial
+					Mat = happyMaterial
 				}
 			},
 			{
 				"-", new OperatorInfo {
 					Numbers = new List<int> { 10, 20, 30 },
 					Operation = (currentScore, value) => currentScore - value,
-					Mat = BadMaterial
+					Mat = badMaterial
 				}
 			},
 			{
 				"*", new OperatorInfo {
-					Numbers = new List<int> { 0, 1, 2, 3 },
+					Numbers = new List<int> { 1, 2, 3 },
 					Operation = (currentScore, value) => currentScore * value,
-					Mat = HappyMaterial
+					Mat = happyMaterial
 				}
 			},
 			{
 				"/", new OperatorInfo {
-					Numbers = new List<int> { 1, 2, 3 },
+					Numbers = new List<int> { 2, 3, 4 },
 					Operation = (currentScore, value) => currentScore / value,
-					Mat = BadMaterial
+					Mat = badMaterial
 				}
 			}
 		};
@@ -64,13 +64,25 @@ public class ScoreModifier : MonoBehaviour {
 	/// <summary>
 	/// Applies the stored operation to the given score and returns the result.
 	/// </summary>
-	public float ApplyScoreModifier(float currentScore) {
+	public float ApplyScoreModifier(int currentScore) {
 		if (Operators.TryGetValue(operatorSymbol, out var operatorInfo)) {
 			return operatorInfo.Operation(currentScore, modifierValue);
 		}
 		else {
 			Debug.LogWarning($"Unknown operator '{operatorSymbol}'");
 			return currentScore;
+		}
+	}
+
+	void OnTriggerEnter(Collider other) {
+		if (other.gameObject.name == "Player") {
+			PlayerScore playerScore = other.GetComponent<PlayerScore>();
+			if (playerScore == null) {
+				Debug.LogError("PlayerScore not working");
+			}
+
+			int score = playerScore.GetScore();
+			playerScore.SetScore((int) ApplyScoreModifier(score));
 		}
 	}
 

@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		float moveZ = Input.GetAxis("Horizontal"); // A/D or Left/Right Arrows
+		float moveZ = Input.GetAxis("Horizontal");
 		rb.velocity = new Vector3(0f, 0f, moveZ * speed);
 	}
 }

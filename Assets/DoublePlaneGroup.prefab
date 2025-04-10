@@ -87,6 +87,10 @@ PrefabInstance:
       propertyPath: planeTextPro
       value: 
       objectReference: {fileID: 8719838043080703190}
+    - target: {fileID: 3043470447274430786, guid: 76320415f09c6964887cce977955eff9, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3786298603875956770, guid: 76320415f09c6964887cce977955eff9, type: 3}
       propertyPath: m_Name
       value: LeftPlane
@@ -176,6 +180,10 @@ PrefabInstance:
       propertyPath: planeTextPro
       value: 
       objectReference: {fileID: 3678720166663196631}
+    - target: {fileID: 3043470447274430786, guid: 76320415f09c6964887cce977955eff9, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3786298603875956770, guid: 76320415f09c6964887cce977955eff9, type: 3}
       propertyPath: m_Name
       value: RightPlane

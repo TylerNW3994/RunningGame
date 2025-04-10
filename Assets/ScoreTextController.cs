@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ScoreTextController : MonoBehaviour
 {
-	public TextMeshPro planeTextPro;
+	public TMP_Text planeTextPro;
 	private ScoreModifier scoreModifier;
 	void Start() {
 		scoreModifier = GetComponent<ScoreModifier>();

@@ -274,11 +274,11 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!65 &3043470447274430786
@@ -316,8 +316,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   operatorSymbol: 
   modifierValue: 0
-  HappyMaterial: {fileID: 2100000, guid: 6e10f77e31beaa74782814b375fdf9f9, type: 2}
-  BadMaterial: {fileID: 2100000, guid: 6241a96d301c0ad4c9ec476b2690c877, type: 2}
+  happyMaterial: {fileID: 2100000, guid: 6e10f77e31beaa74782814b375fdf9f9, type: 2}
+  badMaterial: {fileID: 2100000, guid: 6241a96d301c0ad4c9ec476b2690c877, type: 2}
 --- !u!114 &1623585947525679683
 MonoBehaviour:
   m_ObjectHideFlags: 0
